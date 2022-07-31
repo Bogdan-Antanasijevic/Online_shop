@@ -6,6 +6,8 @@ import ShopCart from "../ShopCart/ShopCart";
 import { setUser } from "../../redux/userSlice";
 import ShopService from "../../services/shopService";
 import { exampleContext } from "../../App.js"
+import "./nav-top.scss";
+import "./nav-top-responsive.scss";
 
 import {
     FaPhoneAlt,
@@ -15,7 +17,6 @@ import {
     FaSearch,
 } from "react-icons/fa";
 
-import "./nav-top.scss";
 import { setCurrency } from "../../redux/currencySlice";
 
 function NavTop() {
@@ -181,7 +182,7 @@ function NavTop() {
 
         <div className="middle-search-cart">
           <div className="middle-cat">
-            <a href="/">
+            <a >
               {" "}
               Category <FaAngleDown />{" "}
             </a>

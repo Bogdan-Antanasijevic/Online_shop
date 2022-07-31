@@ -17,7 +17,7 @@
     }
     .nav-bar-info{
         display: flex;
-        justify-content: space-be;
+        justify-content: space-between;
         align-items: center;
         div{
             padding: 5px 15px;
@@ -116,22 +116,27 @@
             width: 55%;
             height: 50px;
             .middle-cat{
-                border: 1px solid $borderFont;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 20px;
-                a{
-                    color: $borderFont;
-                }
+                display: none;
             }
             .middle-search{
                 border: 1px solid $borderFont;
-                border-left:none ;
                 flex: 2;
                 display: flex;
                 justify-content: start;
                 align-items: center;
+
+                span{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.5rem;
+                    margin-right: .5rem;
+                    color: rgb(133, 131, 131);
+                    &:active{
+                        color: black;
+                    }
+                }
+
                 input[type=search]{
                     height: 100%;
                     border: none;

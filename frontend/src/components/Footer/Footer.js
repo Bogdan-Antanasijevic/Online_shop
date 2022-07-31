@@ -118,18 +118,18 @@ function Footer() {
           </ul>
         </article>
 
-        <article>
-          <h2>Contact Us</h2>
+        {/*<article>*/}
+        {/*  <h2>Contact Us</h2>*/}
 
-          {finishedApi ? (
-              <div className="footer-image-holder">
-                {ads.map((el) => {
-                  return <img src={el.imgUrl} key={el._id} alt={el.title} />
-                })}
-              </div>
-          ) : null}
+        {/*  {finishedApi ? (*/}
+        {/*      <div className="footer-image-holder">*/}
+        {/*        {ads.map((el) => {*/}
+        {/*          return <img src={el.imgUrl} key={el._id} alt={el.title} />*/}
+        {/*        })}*/}
+        {/*      </div>*/}
+        {/*  ) : null}*/}
 
-        </article>
+        {/*</article>*/}
       </section>
 
       <section className="footer-nav-section"></section>

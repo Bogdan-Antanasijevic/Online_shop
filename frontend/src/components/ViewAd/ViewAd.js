@@ -10,7 +10,6 @@ import ChangeCurrency from "../ChangeCurrency/ChangeCurrency";
 import RatingStars from "../RatingStars/RatingStars";
 import ProductDetails from "./ProductDetails";
 import LatestProducts from "./LatestProducts";
-// import RatingStarsModal from "../RatingStarsModal/RatingStarsModal";
 import { toast, ToastContainer } from "react-toastify";
 import Modal from "react-modal";
 import '../RatingStarsModal/rating-stars-modal.scss';
@@ -20,6 +19,8 @@ import SharedService from "../../services/sharedService";
 import { showLoader } from "../../redux/loaderSlice";
 import {  FaThumbsUp } from "react-icons/fa";
 import Comments from "./Comments";
+import {flg} from "../../redux/ratingStarsSlice";
+import RatingStarsModal from "../RatingStarsModal/RatingStarsModal";
 
 
 
@@ -77,9 +78,8 @@ export default function ViewAd() {
         }
     }, []);
 
-    const setRatingS = async (rating, id) => {
+    const setRatingS = async (rating, ad) => {
         dispatch(showLoader(true))
-
         // * GET VOTING FORM SPECIFIC USER
         await AuthService.getVoting(user._id)
             .then(res => {
@@ -88,33 +88,32 @@ export default function ViewAd() {
             .catch(err => {
                 console.log(err, 'greska');
             })
-
-        let isRated = aVotes.includes(id);
+        console.log(aVotes,'avoteees')
+        let isRated = aVotes.includes(ad._id);
         if (!isRated) {
-            await AuthService.setVoting({ userID: user._id, productID: id })
+            await AuthService.setVoting({ userID: user._id,ad,rating })
                 .then(res => {
                     console.log(res.data);
                 })
                 .catch(err => {
                     console.log(err);
                 })
-
             const allRatings = getRatings.allRatings;
+            console.log(allRatings)
             allRatings.push(rating);
+            console.log(allRatings)
             let ratingsSum = 0;
             allRatings.forEach(el => ratingsSum = ratingsSum + el);
 
             let averageRating = (ratingsSum / (allRatings.length)).toFixed(2);
 
-            ShopService.setRatingStars({ allRatings, averageRating, id })
+            ShopService.setRatingStars( {ad,averageRating,allRatings})
                 .then(res => {
                     setIsModal(false);
                     dispatch(showLoader(false))
                     toast.success('You are successfully voted!');
+                    dispatch(flg('tes'))
 
-                    setTimeout(()=> {
-                        window.location.reload(false);
-                    }, 4000);
                 })
                 .catch(err => {
                     console.log(err, "greska");
@@ -136,22 +135,22 @@ export default function ViewAd() {
         dispatch(addToCart(ad));
     };
 
-    const openModal = (id, title) => {
+    const openModal = async (ad) => {
+        const id = ad._id;
         if (localStorage.user) {
-          setIsModal(true);
-          ShopService.getRating(id)
-            .then(res => {
-              console.log(res.data, "podaci");
-              setGetRatings(res.data)
-            })
-            .catch(err => {
-              console.log(err, "greska");
-            });
+            setIsModal(true);
+            await ShopService.getRating(id)
+                .then((res) => {
+                    console.log(res, 'PODACI')
+                    setGetRatings(res.data);
+                })
+                .catch(err => {
+                    console.log(err, "greska");
+                });
         } else {
-          toast.info('Please login to vote');
+            toast.info('Please login to vote');
         }
-
-      };
+    };
 
       const enableRating = (ratingValue) => {
         setRating(ratingValue);
@@ -174,8 +173,8 @@ export default function ViewAd() {
                 <h3>{ad.title}</h3>
 
                      <div className="rating-stars-product">
-                        <RatingStars rating={ad.rating}/>
-                        <span className="rate-product" style={{cursor:"pointer"}} onClick={(e) => openModal(ad._id, ad.title)}>
+                         <RatingStars rating={ad.rating}/>
+                        <span className="rate-product" style={{cursor:"pointer"}} onClick={(e) => openModal(ad)}>
                             rate &nbsp; <FaThumbsUp />
                         </span>
                      </div>
@@ -267,7 +266,7 @@ export default function ViewAd() {
                         <button  className="cancel" onClick={(e) => cancelRating()}>
                             Cancel
                         </button>
-                        <button disabled={isDisabled} className={isDisabled ? "rateNo" : "rateYes"} onClick={(e) => setRatingS(rating, ad._id)}>Rate</button>
+                        <button disabled={isDisabled} className={isDisabled ? "rateNo" : "rateYes"} onClick={(e) => setRatingS(rating, ad)}>Rate</button>
                     </div>
                 </Modal>
             )}

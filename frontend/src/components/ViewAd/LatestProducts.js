@@ -14,9 +14,6 @@ function LatestProducts() {
     const [ads, setAds] = useState([]);
     const dispatch = useDispatch();
 
-    useLayoutEffect(() => {
-        console.log('ads....', ads)
-    })
     useEffect(() => {
         shopService.getRandomAds(15)
             .then((res) => {
@@ -27,8 +24,6 @@ function LatestProducts() {
             .catch(err => console.log(err));
     }, []);
 
-//    const memoizedValue = useMemo(() => doSomething(a, b), [a, b]);
-//    const memoizedCallback = useCallback(() => { doSomething(a, b)}, [a, b]);
 
     const setts = {
         className: "center",
@@ -37,7 +32,33 @@ function LatestProducts() {
         slidesToShow: 4,
         slidesToScroll: 1,
         arrows: false,
-        swipeToSlide: true
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     return <>
