@@ -4,6 +4,7 @@ import OurProductSlider from '../../components/ourProductSlider/ourProductSlider
 import Masonry from "../../components/Masonry/Masonry";
 import Subscribe from "../../components/Subscribe/Subscribe";
 import './home.scss'
+import './home-responsive.scss'
 import HomeSlider from "../../components/HomeSlider/HomeSlider";
 import ClientsWord from "../../components/ClientsWord/ClientsWord";
 

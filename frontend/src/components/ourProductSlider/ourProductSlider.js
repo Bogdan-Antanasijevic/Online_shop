@@ -46,6 +46,14 @@ function OurProductSlider() {
                 }
             },
             {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,

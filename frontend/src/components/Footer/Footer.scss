@@ -54,7 +54,9 @@ $transition:  0.5s ease-in;
     }
     .footer-info{
         display: flex;
-        justify-content: space-between; 
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
         article:nth-child(1), article:nth-child(4){
             flex: 2;
         }

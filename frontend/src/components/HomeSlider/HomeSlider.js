@@ -3,6 +3,7 @@ import Slide from "./components/Slide";
 import ShopService from "../../services/shopService";
 import './home-slider.scss';
 import SlideIndicator from "./components/SlideIndicators";
+import './home-slider-responsive.scss';
 
 function HomeSlider() {
 	const [currentSlide, setCurrentSlide] = useState(0);

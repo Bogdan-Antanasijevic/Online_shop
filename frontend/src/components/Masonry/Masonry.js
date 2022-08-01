@@ -3,6 +3,7 @@ import shopService from '../../services/shopService';
 import AdComponentSmaller from "./AdComponentSmaller";
 import AdComponentBigger from "./AdComponentBigger";
 import "./masonryStyle.scss"
+import "./masonry-responsive.scss"
 
 
 function Masonry({changeSide}) {

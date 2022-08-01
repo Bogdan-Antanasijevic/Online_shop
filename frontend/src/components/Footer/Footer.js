@@ -28,7 +28,7 @@ function Footer() {
   }, []);
 
   const footerLayout = () => {
-    return <div className="footer-wrapper">
+    return <div className="footer-wrapper ">
       <section className="footer-title">
         <a href="/">
           <span>furn</span>

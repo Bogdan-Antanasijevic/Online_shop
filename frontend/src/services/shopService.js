@@ -2,7 +2,7 @@ import axios from "axios";
 
 class ShopService {
     static getAds(paginationObject) {
-        return axios.get(`/shop/products/${paginationObject?.itemsPerPage}/${paginationObject?.currentPage}`);
+        return axios.get(`/shop/product/${paginationObject?.itemsPerPage}/${paginationObject?.currentPage}`);
     }
       static getRandomAds(masonryAds) {
         return axios.get(`/api/home/${masonryAds}`);
