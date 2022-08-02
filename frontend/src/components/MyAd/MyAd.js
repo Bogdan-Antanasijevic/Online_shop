@@ -7,9 +7,9 @@ function MyAd({ product }) {
 
 	const generateRatingStar = (product) => {
 		const content = [];
-		for (let i = 0; i < product.rating; i++) {
-			content.push(<RatingStars key={i} />)
-		}
+
+			content.push(<RatingStars />)
+
 
 		return content
 	}
