@@ -30,8 +30,8 @@ const Pagination = ({ onPagination, totalItems }) => {
             {pageNumbers.length>1 && <nav className='d-flex justify-content-center align-items-center'>
             <ul className='pagination'>
 
-                <li className="pagination-item page-item">
-                    <select className="form-select sort mx-3" defaultValue="0" aria-label="Sort"
+                <li className="pagination-item items-per-page page-item">
+                    <select className="form-select  sort mx-3" defaultValue="0" aria-label="Sort"
                             onChange={(event) => {setItemsPerPage(event.target.value)}}>
                         {itemsPerPageList.map((item,index) => <option key={index} value={item}>{item}</option>)}
                     </select>

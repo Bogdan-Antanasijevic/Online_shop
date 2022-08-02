@@ -36,7 +36,7 @@ function Navigation() {
 				<span>home</span>
 			</Link>}
 
-			<div ref={navRev} className="header-nav main-nav-links" >
+			<div ref={navRev} className="header-nav" >
 				<NavLink className="nav-link"  to={routeConfig.HOME.url}>
 					Home
 				</NavLink>

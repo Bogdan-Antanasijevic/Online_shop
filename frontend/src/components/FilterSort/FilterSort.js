@@ -56,7 +56,7 @@ import {useSelector} from "react-redux";
 							</div>
 						</form>
 					</div>
-					<select className="form-select sort" defaultValue="" aria-label="Sort"
+					<select className="form-select price-sort sort" defaultValue="" aria-label="Sort"
 							onChange={(event) => {setSort(event.target.value)}}>
 						<option value="lowPrice">Low price</option>
 						<option value="highPrice">High price</option>

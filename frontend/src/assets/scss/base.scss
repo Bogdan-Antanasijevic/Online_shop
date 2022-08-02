@@ -148,3 +148,9 @@
     transform: skewX(0deg);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .main-wrapper{
+    overflow: hidden;
+  }
+}

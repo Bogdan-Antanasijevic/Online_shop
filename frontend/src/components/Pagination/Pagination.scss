@@ -6,6 +6,13 @@
 }
 
 .pagination{
+  .items-per-page{
+    margin-right: 30px;
+    select{
+      width: 100%;
+      cursor: pointer;
+    }
+  }
   .active-item{
     a{
       background-color: #1daaa3;

@@ -21,16 +21,22 @@ $navBackround: #252525;
         justify-content: center;
         align-items: center;
 
-            .nav-btn{
-                padding: 5px;
-                cursor: pointer;
-                background: transparent;
-                border: none;
-                outline: none;
-                color: white;
-                visibility: hidden;
-                opacity: 0;
-            }
+        .header-nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-btn{
+            padding: 5px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            visibility: hidden;
+            opacity: 0;
+        }
 
         .furn-logo{
             font-size: 1.4rem;
