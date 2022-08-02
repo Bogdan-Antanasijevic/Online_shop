@@ -61,7 +61,7 @@ routes.put('/set-rating', (req, res) => {
         })
 })
 
-routes.get("/shop/product/get-rating/:id", (req, res) => {
+routes.get("/get-rating/:id", (req, res) => {
     const id = req.params.id;
     Product.find({_id:id},(err,data)=>{
         if (err){

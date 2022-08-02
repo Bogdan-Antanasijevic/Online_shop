@@ -56,6 +56,7 @@ function RatingStarsModal({ ad, getRatings, isModal, setIsModal }) {
                 .catch(err => {
                     console.log(err);
                 })
+            console.log(getRatings)
             const allRatings = getRatings.allRatings;
             console.log(allRatings)
             allRatings.push(rating);
